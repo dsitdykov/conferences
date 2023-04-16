@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', static function () {
-    return view('home.index', []);
-})->name('home.index');
+//Route::get('/', static function () {
+//    return view('conferences.index', []);
+//})->name('conferences.index');
+
+Route::resource('conferences', ConferencesController::class)->only(['index', 'show']);
