@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConferencesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', static function () {
-//    return view('conferences.index', []);
-//})->name('conferences.index');
+Route::get('/', static function () {
+    return redirect('/conferences');
+})->name('redirect-conferences');
 
-Route::resource('conferences', ConferencesController::class)->only(['index', 'show']);
+Route::resource('conferences', ConferencesController::class);
+
+//Route::get('conferences/create', [ConferencesController::class, 'create'])->name('conferences.create');
+//Route::post('conferences/store', [ConferencesController::class, 'store'])->name('conferences.store');
