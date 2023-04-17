@@ -23,7 +23,7 @@ class StoreConferenceRequest extends FormRequest
     {
         return [
             'title' => 'required|min:5|max:20',
-            'content' => 'required|min:10'
+            'content' => 'required|min:5'
         ];
     }
 }

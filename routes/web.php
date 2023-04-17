@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ConferencesController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +22,15 @@ Route::get('/', static function () {
 
 Route::resource('conferences', ConferencesController::class);
 
-//Route::get('conferences/create', [ConferencesController::class, 'create'])->name('conferences.create');
-//Route::post('conferences/store', [ConferencesController::class, 'store'])->name('conferences.store');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Route::middleware('auth')->group(function () {
+//    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login.form');
+//    Route::post('login', [LoginController::class, 'login'])->name('login');
+//    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+//});
+
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login.form');
+Route::post('login', [LoginController::class, 'login'])->name('login');
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+

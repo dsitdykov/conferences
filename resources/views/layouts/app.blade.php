@@ -8,11 +8,35 @@
     <title>Laravel project - @yield('title')</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            @yield('content')
+<div>
+    <header class="m-10">
+{{--        @guest--}}
+{{--            <a href="{{ route('login') }}">Login</a>--}}
+{{--        @else--}}
+{{--            <a href="{{ route('logout') }}" id="logout-btn">Logout ({{ auth()->user()->name }})</a>--}}
+{{--            <form action="{{ route('logout') }}" method="POST" id="logout-form" class="d-none">--}}
+{{--                @csrf--}}
+{{--            </form>--}}
+{{--        @endguest--}}
+        @guest
+            <a href="{{ route('login') }}">Login</a>
+        @else
+            <a href="{{ route('logout') }}"
+               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout
+                ({{ auth()->user()->name }})</a>
+            <form action="{{ route('logout') }}" method="POST" id="logout-form" class="d-none">
+                @csrf
+            </form>
+        @endguest
+    </header>
+    <main class="py-3">
+        <div class="container">
+            <div class="row">
+                @yield('content')
+            </div>
         </div>
-    </div>
+    </main>
+</div>
 <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
