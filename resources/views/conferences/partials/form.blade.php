@@ -12,3 +12,13 @@
     <p>{{ $message }}</p>
     @enderror
 </div>
+<div>
+    <label for="datetime">Date and Time</label>
+    <input type="datetime-local" name="datetime" class="form-control datetimepicker-input" id="datetime" data-toggle="datetimepicker" data-target="#datetime"
+           value="{{ old('datetime', optional($conference ?? null)->datetime) }}">
+    @error('datetime')
+    <p>{{ $message }}</p>
+    @enderror
+</div>
+{{--<label for="datetime">Date and Time:</label>--}}
+{{--<input type="text" name="datetime" class="form-control datetimepicker-input" id="datetime" data-toggle="datetimepicker" data-target="#datetime"/>--}}

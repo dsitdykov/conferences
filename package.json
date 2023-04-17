@@ -16,6 +16,9 @@
         "sass-loader": "^12.1.0"
     },
     "dependencies": {
-        "bootstrap-datetimepicker": "^0.0.7"
+        "bootstrap-datetimepicker": "^0.0.7",
+        "datetimepicker": "^0.1.39",
+        "jquery": "^3.6.4",
+        "jquery-ui-bootstrap": "^1.0.0"
     }
 }
