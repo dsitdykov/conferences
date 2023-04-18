@@ -6,3 +6,13 @@ require('./bootstrap');
 //         $('#logout-form').trigger('submit');
 //     });
 // });
+// jQuery('#datetimepicker').datetimepicker();
+
+$(function () {
+    $('body').find('#datetimepicker').each(function () {
+        $(this).datetimepicker({
+            showClose: true,
+            debug: true,
+        });
+    });
+});

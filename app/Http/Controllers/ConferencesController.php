@@ -57,7 +57,7 @@ class ConferencesController extends Controller
      */
     public function store(StoreConferenceRequest $request, Conference $conference): RedirectResponse
     {
-
+        dd();
         $validated = $request->validated();
         $conferenceItem = $conference->create($validated);
 
