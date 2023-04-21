@@ -1,29 +1,31 @@
-<div>
-    <label for="title-input">Title</label>
-    <input type="text" id="title-input" name="title" value="{{ old('title', optional($conference ?? null)->title) }}">
+<div class="form-group py-1">
+    <label for="title-input">{{ trans('app.title_label') }}</label>
+    <input class="form-control" type="text" id="title-input" name="title" value="{{ old('title', optional($conference ?? null)->title) }}">
     @error('title')
-    <p>{{ $message }}</p>
+    <small class="form-text text-muted">{{ $message }}</small>
     @enderror
 </div>
-<div>
-    <label for="content-input">Content</label>
-    <textarea id="content-input" name="content">{{ old('content', optional($conference ?? null)->content) }}</textarea>
+<div class="form-group py-1">
+    <label for="content-input">{{ trans('app.content_label') }}</label>
+    <textarea class="form-control" id="content-input" name="content">{{ old('content', optional($conference ?? null)->content) }}</textarea>
     @error('content')
-    <p>{{ $message }}</p>
+    <small class="form-text text-muted">{{ $message }}</small>
     @enderror
 </div>
-<div>
-    <label for="address-input">Address</label>
-    <input type="text" id="address-input" name="address" value="{{ old('address', optional($conference ?? null)->address) }}">
+<div class="form-group py-1">
+    <label for="address-input">{{ trans('app.address_label') }}</label>
+    <input class="form-control" type="text" id="address-input" name="address" value="{{ old('address', optional($conference ?? null)->address) }}">
     @error('address')
-    <p>{{ $message }}</p>
+    <small class="form-text text-muted">{{ $message }}</small>
     @enderror
 </div>
-<div>
-    <label for="datetimepicker">Date and Time</label>
-    <input type="datetime-local" name="datetime" class="form-control datetimepicker-input" id="datetimepicker"
+<div class="form-group py-1">
+    <label for="datetimepicker">{{ trans('app.datetime_label') }}</label>
+    <input class="form-control" type="datetime-local" name="datetime" class="form-control datetimepicker-input" id="datetimepicker"
            value="{{ old('datetime', optional($conference ?? null)->datetime) }}">
     @error('datetime')
-    <p>{{ $message }}</p>
+    <small class="form-text text-muted">{{ $message }}</small>
     @enderror
 </div>
+
+

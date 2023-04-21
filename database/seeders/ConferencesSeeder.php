@@ -16,12 +16,16 @@ class ConferencesSeeder extends Seeder
     {
         (new Conference())->insert([
             [
-                'title' => Lorem::sentence(5),
-                'content' => Lorem::text()
+                'title' => 'Konferencija 1',
+                'content' => Lorem::text(),
+                'address' => 'Address 123',
+                'datetime' => '2023-06-01 17:30:00'
             ],
             [
-                'title' => Lorem::sentence(5),
-                'content' => Lorem::text()
+                'title' => 'Konferencija 2',
+                'content' => Lorem::text(),
+                'address' => 'Address 321',
+                'datetime' => '2023-05-21 12:30:00'
             ]
         ]);
     }

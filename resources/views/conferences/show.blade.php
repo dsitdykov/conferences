@@ -1,11 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(session('status'))
-        <div style="background-color: green; color: lime;">{{ session('status') }}</div>
-    @endif
-    <h1>{{ $conferences['title'] }}</h1>
-    <p>{{ $conferences['content'] }}</p>
-    <p>{{ $conferences['address'] }}</p>
-    <p>{{ $conferences['datetime'] }}</p>
+    <h1 class="col-md-8 mx-auto py-3">{{ trans('app.information_tag') }}</h1>
+    <div class="card col-md-8 mx-auto m-2 p-2">
+        <div class="card-body">
+            <h5 class="card-title">{{ $conferences['title']}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ $conferences['datetime']}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{ $conferences['address']}}</h6>
+            <p class="card-text">{{ $conferences['content']}}</p>
+        </div>
+    </div>
+    <div class="py-3 col-md-8 mx-auto">
+        <a href="{{ route('conferences.index') }}">
+            <input class="btn btn-dark" type="submit" value={{ trans('app.ok_btn') }} >
+        </a>
+    </div>
 @endsection

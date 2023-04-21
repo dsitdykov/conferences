@@ -13,26 +13,34 @@
     <title>{{ trans('app.project') }}</title>
 </head>
 <body>
-<div class="container">
-    <header class="m-10">
-        @guest
-            <a href="{{ route('login') }}">{{ trans('app.login_btn') }}</a>
-        @else
-            <a href="{{ route('logout') }}"
-               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ trans('app.logout_btn') }}
-                ({{ auth()->user()->name }})</a>
-            <form action="{{ route('logout') }}" method="POST" id="logout-form" class="d-none">
-                @csrf
-            </form>
-        @endguest
-    </header>
-    <main class="py-3">
-        <div class="container">
-            <div class="row">
-                @yield('content')
-            </div>
-        </div>
-    </main>
+<nav class="navbar py-2 px-5 navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse justify-content-between" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('conferences.index') }}">{{ trans('app.home') }}</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                @guest
+                    <a class="nav-link" href="{{ route('login') }}">{{ trans('app.login_btn') }}</a>
+                @else
+                    <a class="nav-link" href="{{ route('logout') }}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ trans('app.logout_btn') }}
+                        ({{ auth()->user()->name }})</a>
+                    <form action="{{ route('logout') }}" method="POST" id="logout-form" class="d-none">
+                        @csrf
+                    </form>
+                @endguest
+            </li>
+        </ul>
+    </div>
+</nav>
+@if(session('status'))
+    <div class="message">{{ session('status') }}</div>
+@endif
+<div class="container py-3">
+    @yield('content')
 </div>
 </body>
 </html>
