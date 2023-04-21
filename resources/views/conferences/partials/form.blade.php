@@ -13,8 +13,15 @@
     @enderror
 </div>
 <div>
+    <label for="address-input">Address</label>
+    <input type="text" id="address-input" name="address" value="{{ old('address', optional($conference ?? null)->address) }}">
+    @error('address')
+    <p>{{ $message }}</p>
+    @enderror
+</div>
+<div>
     <label for="datetimepicker">Date and Time</label>
-    <input type="text" name="datetime" class="form-control datetimepicker-input" id="datetimepicker"
+    <input type="datetime-local" name="datetime" class="form-control datetimepicker-input" id="datetimepicker"
            value="{{ old('datetime', optional($conference ?? null)->datetime) }}">
     @error('datetime')
     <p>{{ $message }}</p>

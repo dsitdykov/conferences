@@ -6,5 +6,6 @@
     @endif
     <h1>{{ $conferences['title'] }}</h1>
     <p>{{ $conferences['content'] }}</p>
+    <p>{{ $conferences['address'] }}</p>
     <p>{{ $conferences['datetime'] }}</p>
 @endsection

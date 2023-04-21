@@ -57,11 +57,10 @@ class ConferencesController extends Controller
      */
     public function store(StoreConferenceRequest $request, Conference $conference): RedirectResponse
     {
-        dd();
         $validated = $request->validated();
         $conferenceItem = $conference->create($validated);
 
-        $request->session()->flash('status', 'Conference created!');
+        $request->session()->flash('status', trans('app.create_msg'));
 
         return redirect()->route('conferences.show', ['conference' => $conferenceItem->id]);
     }
@@ -98,7 +97,7 @@ class ConferencesController extends Controller
         $conference->save();
 
 
-        $request->session()->flash('status', 'Conference was updated!');
+        $request->session()->flash('status', trans('app.edit_msg'));
 
         return redirect()->route('conferences.show', ['conference' => $conference->id]);
     }
@@ -113,7 +112,7 @@ class ConferencesController extends Controller
         $conference = (new Conference())->findOrFail($id);
         $conference->delete();
 
-        session()->flash('status', 'Conference was deleted!');
+        session()->flash('status', trans('app.delete_msg'));
 
         return redirect()->route('conferences.index');
     }
